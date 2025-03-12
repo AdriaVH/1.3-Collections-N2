@@ -1,6 +1,8 @@
 ### IntelliJ IDEA ###
 out/
+.idea/
 !**/src/test/**/out/
+untitled.iml
 
 ### Eclipse ###
 .apt_generated
