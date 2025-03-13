@@ -1,15 +1,20 @@
 package ex2.classes;
 
-import java.util.Comparator;
 import java.util.Objects;
 
-public class Restaurant implements Comparator {
+public class Restaurant implements Comparable<Restaurant> {
     private String name;
     private int score;
 
+
     @Override
-    public int compare(Object o1, Object o2) {
-        return 0;
+    public int compareTo(Restaurant r2) {
+        int order = r2.getName().compareToIgnoreCase(getName());
+
+        if (order == 0) {
+            order = Integer.compare(r2.getScore(), getScore());
+        }
+        return order;
     }
 
     @Override
@@ -24,8 +29,8 @@ public class Restaurant implements Comparator {
     }
 
     public Restaurant(String name, int score) {
-        this.name = name;
-        this.score = score;
+        setName(name);
+        setScore(score);
     }
 
     public String getName() {
@@ -43,4 +48,5 @@ public class Restaurant implements Comparator {
     public int getScore() {
         return score;
     }
+
 }
